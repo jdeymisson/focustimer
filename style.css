@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #02799D;
+  --bg-color: #FFF;
+
+  --font-color: #323238;
+  --ffamily: 'Roboto', sans-serif;
+
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--bg-color);
+
+  font-family: var(--ffamily);
+  font-weight: 500;
+  
+  min-height: 100vh;
+
+  display: grid;
+  justify-content: center;
+  align-items: flex-end;
+
+  color: var(--font-color);
+}
+
+button {
+  background: transparent;
+  border: none;
+
+  outline: none;
+}
+
+main {
+  max-width: 82.1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 19.2rem;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  font-size: clamp( 5rem ,7rem + 8vw,12.6rem);
+  line-height: 14.8rem;
+  margin-bottom: 1.7rem;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sound-butons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+}
+
+.sound-butons button.active svg path:nth-child(1){
+  fill: var(--primary-color)
+}
+
+
+.sound-butons button.active svg path:nth-child(2){
+  fill: var(--bg-color);
+} 
