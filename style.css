@@ -24,10 +24,30 @@ body {
 
   display: grid;
   justify-content: center;
-  align-items: flex-end;
 
   color: var(--font-color);
+
+  transition: all .5s linear;
 }
+
+body.dark {
+  background: var(--font-color);
+
+  color: var(--bg-color);
+}
+
+body.dark .sound-butons button svg path:nth-child(1) {
+  fill: #29292E;
+}
+
+body.dark .sound-butons button.active svg path:nth-child(1) {
+  fill: #0A3442;
+}
+
+body.dark .control-buttons button svg path, body.dark .sound-butons button svg path:nth-child(2) {
+  fill: #C4C4CC;
+} 
+
 
 button {
   background: transparent;
@@ -65,11 +85,71 @@ main {
   gap: 3.2rem;
 }
 
-.sound-butons button.active svg path:nth-child(1){
-  fill: var(--primary-color)
+.sound-butons button {
+  position: relative;
 }
 
+.sound-butons button input {
+  position: absolute;
+  left: 2.6rem;
+  bottom: 3rem;
+  
+  z-index: 1;
+  
+  max-width: 9rem;
+
+  border-radius: 5px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--font-color);
+
+  height: 4px;
+}
+
+.sound-butons button.active input {
+  background: var(--bg-color);
+}
+
+body.dark .sound-butons button input, body.dark .sound-butons button input::-webkit-slider-thumb  {
+  background: var(--bg-color);
+}
+
+.sound-butons button input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%; 
+
+  background: var(--font-color);
+  cursor: pointer;
+}
+
+.sound-butons button.active input::-webkit-slider-thumb {
+  background: var(--bg-color);
+}
+
+.sound-butons button.active svg path:nth-child(1){
+  fill: #0A3442;
+}
 
 .sound-butons button.active svg path:nth-child(2){
   fill: var(--bg-color);
 } 
+
+button.light, button.dark {
+  position: absolute;
+  top: 6.4rem;
+  right: 6.4rem;
+
+  display: none;
+}
+
+.light.active{
+  display: block;
+}
+
+.dark.active{
+  display: block;
+}

@@ -7,7 +7,9 @@ import {
   buttonHeat,
   buttonHouse,
   buttonRain,
-  buttonsSound } from './butons.js';
+  buttonsSound,
+  buttonDark,
+  buttonLight } from './butons.js';
 
 let minutesDisplay = document.querySelector('.minutes');
 let secondsDisplay = document.querySelector('.seconds');
@@ -15,6 +17,7 @@ let minutes = Number(minutesDisplay.textContent);
 let seconds = Number(secondsDisplay.textContent);
 let minutesOld = Number(minutesDisplay.textContent);
 let timerTimeout;
+const body = document.querySelector('body');
 
 function updateDisplayTimer(minutes, seconds) {
   secondsDisplay.textContent = String(seconds).padStart(2, '0');
@@ -135,3 +138,18 @@ buttonHeat.addEventListener('click', function() {
 
   buttonPress.play();
 });
+
+buttonLight.addEventListener('click', function() {
+  buttonLight.classList.remove('active');
+  buttonDark.classList.add('active');
+
+  body.classList.add('dark');
+});
+
+buttonDark.addEventListener('click', function() {
+  buttonDark.classList.remove('active');
+  buttonLight.classList.add('active');
+
+  body.classList.remove('dark');
+});
+ 
